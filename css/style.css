@@ -1,0 +1,125 @@
+body {
+	/*внутрішні відступи*/
+	padding: 0;
+	margin: 0;
+}
+.container{
+	width: 90%;
+	/*background: #f00;*/
+/*І варіант центрування
+margin: 0 auto;*/
+/*ІІ варіант центрування
+	margin-left: auto;
+	margin-right: auto;*/
+	/*ІІІ варіант центрування*/
+	margin: 0 auto 0 auto;
+}
+/*створення хедера заголовка*/
+.header{
+	background-color: #221f1f  ;
+	height: 72px;
+	/*колір тексту*/
+	color: #fff;
+	/*центрування по вертикалі*/
+	display: flex;
+	align-items: center;
+}
+/*для того щоб елементи були поруч*/
+.header > .container {
+	display: flex;
+	align-items: center;
+}
+/*стиль кнопки*/
+.header__menu-toggle {
+/*позиціювання ліній	*/
+position: relative;
+width: 64px;
+/*щоб не стискалася кнопка*/
+min-width: 40px;
+height: 40px;
+/*змінити фон кнопки
+background: #ccc;*/
+/*відсунути кнопку*/
+margin-right: 16px;
+/*заокруглені кути*/
+border-radius: 4px;
+transition:0.3s;
+}
+/*зміна кольору кнопки після наведення */
+.header__menu-toggle:hover  {
+	background: #4e4c4c;
+	/*плавний перехід*/
+	transition:0.3s;
+}
+/*зміна кольору при натисканні*/
+.header__menu-toggle:active  {
+	background: #f00;
+	/*плавний перехід*/
+	transition:0.3s;
+}
+/*стиль білих рисочок*/
+.header__menu-toggle > div {
+	width: 24px;
+	height: 2px;
+	background: #fff;
+	/*позиціювання елементів всередині*/
+	top: 50%;
+	position: absolute;
+	/*центруємо полоски по горизонталі*/
+	/*дужка після calc без пробілу
+	left: calc(50% - 12px);*/
+	/*правильніший варіант, якщо змінюється ширина полоски*/
+	left: 50%;
+	transform: translateX(-50%);
+}
+/*перша полоска згори на 8*/
+.header__menu-toggle  > div:nth-child(1) {
+	top:12px;
+}
+/* третя полоска знизу на 8*/
+.header__menu-toggle  > div:nth-child(3) {
+	/*скасувати правило, тобто повернути початкове*/
+	top:calc(100% - 12px);
+	/*bottom: 8px;*/
+}
+/*зникає полоска з екрану*/
+.header__menu-toggle:hover > div:nth-child(2) {
+	display: none;
+}
+/*повертає на 45*/
+.header__menu-toggle:hover  > div:nth-child(1) {
+	transform:  translateX(-50%) rotate(45deg);
+	top: 50%;
+	transition:0.3s;
+}
+/*повертає на -45*/
+.header__menu-toggle:hover > div:nth-child(3) {
+	transform:  translateX(-50%) rotate(-45deg);
+	top: 50%;
+	transition:0.3s;
+}
+.header__catalog-toggle button {
+	appearance: none;
+	background: #4e4c4c;
+	border: none;
+	display: flex;
+	color: #fff;
+	align-items: center;
+	margin-left: 20px;
+	height: 40px;
+	border-radius: 4px;
+	padding: 0 14px;
+	font-size: 16px;
+	cursor: pointer;
+}
+.header__catalog-toggle button:hover {
+	background: #7a7979;
+	transition: 0.3s;
+}
+.header__catalog-toggle button img {
+	width: 20px;
+	min-width: 20px;
+	height: auto;
+	margin-right: 10px
+
+}
